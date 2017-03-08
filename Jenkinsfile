@@ -11,8 +11,8 @@ pipeline {
         script {
           parallel (
             test: { sh 'pytest' },
-            docs: { sh 'pycco src/*.py'},
-            pep8: { sh 'pep8 src'}
+            docs: { sh 'pycco src/*.py' },
+            pep8: { sh 'pep8 src' }
           )
         }
       }
