@@ -12,7 +12,9 @@ pipeline {
       }
     }
     stage('submit') {
-      def workspace = pwd()
+      section {
+        def workspace = pwd()
+      }
       steps {
         sh "echo ${workspace}"
         // sh "submit.py  --course=${course} --assignment=${workspace}$ --name=\"${name}\""
