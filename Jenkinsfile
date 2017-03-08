@@ -8,6 +8,10 @@ pipeline {
     }
     stage('test') {
       steps {
+        script {
+          def workspace = pwd()
+        }
+        sh "echo ${workspace}"
         sh 'pytest'
       }
     }
