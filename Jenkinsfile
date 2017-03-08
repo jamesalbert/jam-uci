@@ -8,10 +8,6 @@ pipeline {
     }
     stage('test') {
       steps {
-        script {
-          def workspace = pwd()
-        }
-        sh "echo ${workspace}"
         sh 'pytest'
       }
     }
@@ -20,8 +16,7 @@ pipeline {
         script {
           def workspace = pwd()
         }
-        sh "echo ${workspace}"
-        // sh "submit.py  --course=${course} --assignment=${workspace}$ --name=\"${name}\""
+        sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
       }
     }
   }
