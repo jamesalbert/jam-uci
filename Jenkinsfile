@@ -5,6 +5,13 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
       }
+      script {
+        import groovy.json.JsonSlurper
+        def InputJson = new JsonSlurper().parseText('./eee')
+        InputJson.each { k, v ->
+          println k
+        }
+      }
     }
     stage('test') {
       steps {
@@ -22,7 +29,7 @@ pipeline {
         script {
           def workspace = pwd()
         }
-        sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
+        // sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
       }
     }
   }
