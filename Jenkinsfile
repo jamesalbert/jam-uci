@@ -1,8 +1,8 @@
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 
 @NonCPS
 def parseJson(filename) {
-  return new JsonSlurper().parseText(filename)
+  return new JsonSlurperClassic().parseText(filename)
 }
 
 pipeline {
@@ -31,7 +31,6 @@ pipeline {
           def conf = parseJson(readFile('.eee'))
           println conf.assignment
           sh "${pwd()}: ${conf.course}"
-          conf = null
         }
         // sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
       }
