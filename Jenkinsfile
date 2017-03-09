@@ -12,7 +12,7 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
-          def InputJson = parseJson(readFile('./eee'))
+          def InputJson = parseJson(readFile('.eee'))
           InputJson.each { k, v ->
             println k
           }
