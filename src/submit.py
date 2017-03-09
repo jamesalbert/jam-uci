@@ -97,7 +97,9 @@ if __name__ == '__main__':
                      password=os.environ['EEE_PASSWORD'])
     else:
         exit('username and password must be specified')
-    driver = webdriver.Chrome(conf['chromedriver'])
+    driver = webdriver.Chrome('{0}/Downloads/chromedriver'.format(
+        os.path.expanduser('~')
+    ))
     driver.get(url)
     login()
     find_class()

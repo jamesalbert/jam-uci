@@ -18,6 +18,27 @@ cd jam-uci
 ln -s $HERE/src/submit.py /usr/local/bin/submit.py
 ```
 
+You also need to specify EEE credentials either in $HOME/.eee or the EEE_USERNAME and EEE_PASSWORD environment variables.
+
+$HOME/.eee:
+```
+{
+  "username": "jalbert1",
+  "password": "XXXXXXXX"
+}
+```
+
+There should also be a .eee file in the root directory of the project we're submitting to specify what and where to submit.
+
+$PROJECT_DIR/.eee:
+```
+{
+  "course": "143B",
+  "assignment": "src/main.py",
+  "name": "CS143B Project 3"
+}
+```
+
 ## API Reference
 
 We'll be triggering the Jenkins build process via an api call. I'm currently using src/build.sh to trigger the builds. Here's a quick reference:
