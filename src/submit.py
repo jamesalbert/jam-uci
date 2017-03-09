@@ -73,7 +73,6 @@ def find_assignment():
 def find_submission():
     html = BeautifulSoup(driver.page_source, 'html.parser')
     link = html.find('a', text=re.compile('AssignmentSubmission'))
-    print('getting {0}'.format('{0}{1}'.format(url, link['href'])))
     driver.get('{0}{1}'.format(url, link['href']))
     wait_for('time_loaded')
 
