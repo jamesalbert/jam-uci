@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurperClassic
+
 pipeline {
   agent any
   stages {
@@ -5,8 +7,10 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
       }
+    }
+    stage('read config') {
       script {
-        def InputJson = writeObjectFromJson readFile('./eee')
+        def InputJson = new JsonSlurperClassic().parseText(readFile('./eee'))
         InputJson.each { k, v ->
           println k
         }
