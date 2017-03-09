@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 @NonCPS
 def parseJson(filename) {
   def ret = new JsonSlurper().parseText(readFile(filename))
-  println ret
+  echo ret
   return ret
 }
 
