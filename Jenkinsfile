@@ -13,9 +13,6 @@ pipeline {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
           def InputJson = parseJson('.eee')
-          InputJson.each { k, v ->
-            println k
-          }
         }
       }
     }
