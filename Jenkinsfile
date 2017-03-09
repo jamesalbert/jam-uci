@@ -1,8 +1,8 @@
 import groovy.json.JsonSlurper
 
 @NonCPS
-def parseJson(text) {
-  return (new JsonSlurper()).parseText(text)
+def parseJson(filename) {
+  return new JsonSlurper().parseText(readFile(filename))
 }
 
 pipeline {
@@ -12,7 +12,7 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
-          def InputJson = parseJson(readFile('.eee'))
+          def InputJson = parseJson('.eee')
           InputJson.each { k, v ->
             println k
           }
