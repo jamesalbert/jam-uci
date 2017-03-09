@@ -12,7 +12,8 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
-          def InputJson = parseJson('.eee')
+          def conf = parseJson('.eee')
+          println conf.course
         }
       }
     }
