@@ -20,7 +20,7 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
-          def conf = parseJson('.eee')
+          def conf = parseJson(readFile('.eee'))
         }
       }
     }
