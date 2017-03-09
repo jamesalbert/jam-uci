@@ -1,5 +1,13 @@
 import groovy.json.JsonSlurper
 
+@NonCPS
+def parseJson(filename) {
+  def jsonStr = readFile(filename)
+  def json = writeObjectFromJson('{"test": "cat"}')
+  echo "jsonStr=$jsonStr"
+  echo "json=$json"
+  return json
+}
 
 pipeline {
   agent any
@@ -8,14 +16,6 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
-          @NonCPS
-          def parseJson(filename) {
-            def jsonStr = readFile(filename)
-            def json = writeObjectFromJson(jsonStr)
-            echo "jsonStr=$jsonStr"
-            echo "json=$json"
-            return json
-          }
           def conf = parseJson('.eee')
         }
       }
