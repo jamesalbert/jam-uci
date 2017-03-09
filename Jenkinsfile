@@ -29,6 +29,7 @@ pipeline {
         script {
           def workspace = pwd()
           def conf = parseJson(readFile('.eee'))
+          println conf.assignment
         }
         sh "${pwd()}: ${conf.course}"
         // sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
