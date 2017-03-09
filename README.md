@@ -43,5 +43,5 @@ There should also be a **.eee** file in the root directory of the project we're 
 
 We'll be triggering the Jenkins build process via an api call. I'm currently using src/build.sh to trigger the builds. Here's a quick reference:
 ```
-curl "http://localhost:8080/job/homework/buildWithParameters?token=buildWithParameters&course=$1&project=$2&assignment=$3&name=$4"
+curl "http://localhost:8080/job/homework/buildWithParameters?token=buildWithParameters&project=$1"
 ```
