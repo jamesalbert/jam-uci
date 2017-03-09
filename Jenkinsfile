@@ -13,7 +13,6 @@ pipeline {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
           def conf = parseJson(readFile('.eee'))
-          println conf.course
         }
       }
     }
@@ -33,6 +32,7 @@ pipeline {
         script {
           def workspace = pwd()
         }
+        sh "${pwd()}: ${conf.course}"
         // sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
       }
     }
