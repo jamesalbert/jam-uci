@@ -27,7 +27,6 @@ pipeline {
     stage('submit') {
       steps {
         script {
-          def workspace = pwd()
           def conf = parseJson(readFile('.eee'))
           sh "submit.py  --course=${conf.course} --assignment=${pwd()}/${conf.assignment} --name=\"${conf.name}\""
         }
