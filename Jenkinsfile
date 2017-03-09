@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git url: "https://github.com/jamesalbert/${project}.git"
+        git url: "https://github.com/${project}.git"
       }
     }
     stage('test') {
