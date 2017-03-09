@@ -6,7 +6,7 @@ pipeline {
         git url: "https://github.com/jamesalbert/${project}.git"
       }
       script {
-        def InputJson = new JsonSlurperClassic().parseText(readFile('./eee'))
+        def InputJson = writeObjectFromJson readFile('./eee')
         InputJson.each { k, v ->
           println k
         }
