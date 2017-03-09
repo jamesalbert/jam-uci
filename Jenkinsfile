@@ -31,6 +31,7 @@ pipeline {
           def conf = parseJson(readFile('.eee'))
           println conf.assignment
           sh "${pwd()}: ${conf.course}"
+          conf = null
         }
         // sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
       }
