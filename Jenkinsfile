@@ -2,8 +2,8 @@ import groovy.json.JsonSlurper
 
 @NonCPS
 def parseJson(filename) {
+  println "hello"
   def jsonStr = readFile(filename)
-  println jsonStr
   def json = writeObjectFromJson('{"test": "cat"}')
   echo "jsonStr=$jsonStr"
   echo "json=$json"
