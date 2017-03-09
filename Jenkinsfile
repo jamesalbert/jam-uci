@@ -2,9 +2,7 @@ import groovy.json.JsonSlurper
 
 @NonCPS
 def parseJson(filename) {
-  println filename
-  println pwd()
-  println new File(filename).text
+  println new JsonSlurper().parseText(filename)
   def jsonStr = readFile(filename)
   println jsonStr
   def json = writeObjectFromJson('{"test": "cat"}')
