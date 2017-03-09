@@ -18,9 +18,9 @@ cd jam-uci
 ln -s $HERE/src/submit.py /usr/local/bin/submit.py
 ```
 
-You also need to specify EEE credentials either in $HOME/.eee or the EEE_USERNAME and EEE_PASSWORD environment variables.
+You also need to specify EEE credentials either in `$HOME/.eee` or the EEE_USERNAME and EEE_PASSWORD environment variables.
 
-$HOME/.eee:
+`$HOME/.eee`:
 ```
 {
   "username": "jalbert1",
@@ -28,9 +28,9 @@ $HOME/.eee:
 }
 ```
 
-There should also be a .eee file in the root directory of the project we're submitting to specify what and where to submit.
+There should also be a `.eee` file in the root directory of the project we're submitting to specify what and where to submit.
 
-$PROJECT_DIR/.eee:
+`$PROJECT_DIR/.eee`:
 ```
 {
   "course": "143B",
