@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 
 @NonCPS
 def parseJson(text) {
-  return new JsonSlurper().parseText(text)
+  return (new JsonSlurper()).parseText(text)
 }
 
 pipeline {
