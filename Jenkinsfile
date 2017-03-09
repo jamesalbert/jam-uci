@@ -3,6 +3,7 @@ import groovy.json.JsonSlurper
 @NonCPS
 def parseJson(filename) {
   def jsonStr = readFile(filename)
+  println jsonStr
   def json = writeObjectFromJson('{"test": "cat"}')
   echo "jsonStr=$jsonStr"
   echo "json=$json"
@@ -16,7 +17,6 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
-          println writeObjectFromJson(readFile('.eee'))
           def conf = parseJson('.eee')
         }
       }
