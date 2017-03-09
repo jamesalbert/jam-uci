@@ -1,10 +1,12 @@
-import groovy.json.JsonSlurperClassic
+import groovy.json.JsonSlurper
 
 @NonCPS
 def parseJson(filename) {
-  def ret = new JsonSlurperClassic().parseText(readFile(filename))
-  println ret
-  return ret
+  def jsonStr = readFile(filename)
+  def json = writeObjectFromJson(jsonStr)
+  echo "jsonStr=$jsonStr"
+  echo "json=$json"
+  return json
 }
 
 pipeline {
