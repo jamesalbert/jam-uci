@@ -16,6 +16,7 @@ pipeline {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
+          println "hello"
           def conf = parseJson('.eee')
         }
       }
