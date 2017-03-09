@@ -6,13 +6,11 @@ pipeline {
     stage('checkout') {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
-      }
-    }
-    stage('read config') {
-      script {
-        def InputJson = new JsonSlurperClassic().parseText(readFile('./eee'))
-        InputJson.each { k, v ->
-          println k
+        script {
+          def InputJson = new JsonSlurperClassic().parseText(readFile('./eee'))
+          InputJson.each { k, v ->
+            println k
+          }
         }
       }
     }
