@@ -2,7 +2,9 @@ import groovy.json.JsonSlurper
 
 @NonCPS
 def parseJson(filename) {
-  return new JsonSlurper().parseText(readFile(filename))
+  def ret = new JsonSlurper().parseText(readFile(filename))
+  println ret.course
+  return ret
 }
 
 pipeline {
@@ -13,7 +15,6 @@ pipeline {
         git url: "https://github.com/jamesalbert/${project}.git"
         script {
           def conf = parseJson('.eee')
-          println conf.course
         }
       }
     }
