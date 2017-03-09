@@ -11,9 +11,6 @@ pipeline {
     stage('checkout') {
       steps {
         git url: "https://github.com/jamesalbert/${project}.git"
-        script {
-          def conf = parseJson(readFile('.eee'))
-        }
       }
     }
     stage('test') {
@@ -31,6 +28,7 @@ pipeline {
       steps {
         script {
           def workspace = pwd()
+          def conf = parseJson(readFile('.eee'))
         }
         sh "${pwd()}: ${conf.course}"
         // sh "submit.py  --course=${course} --assignment=${workspace}/${assignment} --name=\"${name}\""
