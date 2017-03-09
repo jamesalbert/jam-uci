@@ -1,8 +1,8 @@
-import groovy.json.JsonSlurperClassic
+import groovy.json.JsonSlurper
 
 @NonCPS
 def parseJson(text) {
-  return new JsonSlurperClassic().parseText(text)
+  return new JsonSlurper().parseText(text)
 }
 
 pipeline {
