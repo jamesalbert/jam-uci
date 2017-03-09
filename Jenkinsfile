@@ -1,9 +1,9 @@
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 
 @NonCPS
 def parseJson(filename) {
-  def ret = new JsonSlurper().parseText(readFile(filename))
-  echo ret
+  def ret = new JsonSlurperClassic().parseText(readFile(filename))
+  println ret
   return ret
 }
 
