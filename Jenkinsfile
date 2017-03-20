@@ -10,8 +10,12 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git url: scm.getUserRemoteConfigs()[0].getUrl()
-        git url: "https://github.com/${project}.git"
+        dir('jam-uci') {
+          git url: scm.getUserRemoteConfigs()[0].getUrl()
+        }
+        dir(project) {
+          git url: "https://github.com/${project}.git"
+        }
       }
     }
     stage('test') {
