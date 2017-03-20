@@ -1,0 +1,4 @@
+method groovy.json.JsonSlurperClassic parseText java.lang.String
+method hudson.plugins.git.GitSCM getUserRemoteConfigs
+method hudson.plugins.git.UserRemoteConfig getUrl
+new groovy.json.JsonSlurperClassic
