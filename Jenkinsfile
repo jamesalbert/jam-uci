@@ -10,6 +10,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
+        echo scm.getUserRemoteConfigs()[0].getUrl()
         git url: "https://github.com/${project}.git"
       }
     }
