@@ -21,11 +21,13 @@ pipeline {
     stage('test') {
       steps {
         script {
-          parallel (
-            test: { sh 'pytest' },
-            docs: { sh 'pycco src/*.py' },
-            pep8: { sh 'pep8 src' }
-          )
+          dir(project) {
+            parallel (
+              test: { sh 'pytest' },
+              docs: { sh 'pycco src/*.py' },
+              pep8: { sh 'pep8 src' }
+            )
+          }
         }
       }
     }
