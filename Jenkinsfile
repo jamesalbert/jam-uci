@@ -37,7 +37,7 @@ pipeline {
           def conf = parseJson(readFile("${project}/.eee"))
           sh "jamesalbert/jam-uci/src/submit.py  \
               --course=${conf.course} \
-              --assignment=${pwd()}/${conf.assignment} \
+              --assignment=${pwd()}/${project}/${conf.assignment} \
               --name=\"${conf.name}\""
         }
       }
