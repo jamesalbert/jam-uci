@@ -10,11 +10,11 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        dir('jam-uci') {
-          git url: scm.getUserRemoteConfigs()[0].getUrl()
-        }
         dir(project) {
           git url: "https://github.com/${project}.git"
+        }
+        dir('jamesalbert/jam-uci') {
+          git url: scm.getUserRemoteConfigs()[0].getUrl()
         }
       }
     }
@@ -34,8 +34,11 @@ pipeline {
     stage('submit') {
       steps {
         script {
-          def conf = parseJson(readFile('.eee'))
-          sh "submit.py  --course=${conf.course} --assignment=${pwd()}/${conf.assignment} --name=\"${conf.name}\""
+          def conf = parseJson(readFile('${project}/.eee'))
+          sh "jamesalbert/jam-uci/src/submit.py  \
+              --course=${conf.course} \
+              --assignment=${pwd()}/${conf.assignment} \
+              --name=\"${conf.name}\""
         }
       }
     }
